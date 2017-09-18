@@ -15,6 +15,7 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        int a = 1;
         initComponents();
     }
 
@@ -37,6 +38,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 0, 102));
         jLabel1.setText("WELCOME!!! SAMPLE VIEWING TEAM GIDAS");
 
+        jLabel2.setBackground(new java.awt.Color(102, 204, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("THANK YOU..");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -49,7 +52,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(72, 72, 72))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(217, 217, 217)
-                .addComponent(jLabel2)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -58,8 +61,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(141, 141, 141)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
