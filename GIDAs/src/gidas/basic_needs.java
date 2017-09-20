@@ -16,7 +16,7 @@ public class basic_needs extends javax.swing.JFrame {
 
     public basic_needs() {
         initComponents();
-    }
+    } 
 
 
     @SuppressWarnings("unchecked")
