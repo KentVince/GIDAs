@@ -23,13 +23,6 @@ public class basic_needs extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("gida?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
-        basicNeedsQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT b FROM BasicNeeds b");
-        basicNeedsList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : basicNeedsQuery.getResultList();
-        basicNeedsQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT b FROM BasicNeeds b");
-        basicNeedsList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : basicNeedsQuery1.getResultList();
-        basicNeedsQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT b FROM BasicNeeds b");
-        basicNeedsList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : basicNeedsQuery2.getResultList();
         txNeed = new javax.swing.JTextField();
         cbType = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -211,20 +204,13 @@ public class basic_needs extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.util.List<gidas.BasicNeeds> basicNeedsList;
-    private java.util.List<gidas.BasicNeeds> basicNeedsList1;
-    private java.util.List<gidas.BasicNeeds> basicNeedsList2;
-    private javax.persistence.Query basicNeedsQuery;
-    private javax.persistence.Query basicNeedsQuery1;
-    private javax.persistence.Query basicNeedsQuery2;
     private javax.swing.JComboBox<String> cbType;
-    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    javax.swing.JTable jTable1;
     private javax.swing.JTextField txNeed;
     // End of variables declaration//GEN-END:variables
 }
