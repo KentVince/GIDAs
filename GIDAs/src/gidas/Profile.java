@@ -50,10 +50,9 @@ public class Profile extends javax.swing.JFrame {
         auto_number();
         ot_id.setEnabled(false);
         
-      
+      // codes.setText(lbl_mun.getText() + lbl_bar.getText() + lbl_purok.getText() + lbl_code.getText());
         
-        
-        
+    
     }
     
     
@@ -140,7 +139,6 @@ public class Profile extends javax.swing.JFrame {
         classDb.dbconnect();
 
       //   jLabel1.setText(dateFormat.format(cal));
-        codec = lbl_mun.getText() + lbl_bar.getText() + lbl_purok.getText() + lbl_code.getText();
         
        int check;
        
@@ -174,15 +172,32 @@ public class Profile extends javax.swing.JFrame {
       
       
         try {
+            
+            codec = lbl_mun.getText() + lbl_bar.getText() + lbl_purok.getText() + lbl_code.getText();
+        
+        String address = lbl_munis.getText()+","+lbl_bars.getText() + ","+lbl_purs.getText(); 
+        
 
             s = classDb.conn.createStatement();
-            s.executeUpdate("Insert INTO profiles(code,last_name,first_name,middle_name,age,sex,civil_status,occupation,employment_status,spouse_name,spouse_age,spouse_occupation,children_male,children_female,address,ginikanan,igsoon,pag_umangkon,created_at,purok_id,users_id) "
-                    + "values('" + codec + "','" + txt_family_head_lastname.getText() + "', '" + txt_family_head_firstname.getText() + "','" + txt_family_head_middlename.getText() + "','" + txt_age.getText() + "','" + cbo_sex.getSelectedItem() + "','" + cbo_status.getSelectedItem() + "','" + txt_occupation.getText() + "','"
-                    + cbo_status_of_employment.getSelectedItem() + "','" + txt_spouse_name.getText() + "','" + txt_spouse_age.getText() + "','" + txt_spouse_occupation.getText() + "','" + txt_no_of_children_male.getText() + "','" + txt_no_of_children_female.getText() + "','" + check + "','" + check + "','" + check + "','" + lbl_date.getText() + "',"
+          /*
+            s.executeUpdate("Insert INTO profiles(code,last_name,first_name,middle_name,age,sex,civil_status,occupation,employment_status,spouse_name,spouse_age,spouse_occupation,children_male,children_female,address,ginikanan,igsoon,pag_umangkon,created_at,updated_at,purok_id,users_id) "
+                    + "values('" + codec + "','" + txt_family_head_lastname.getText() + "', '" + txt_family_head_firstname.getText() + "','" + txt_family_head_middlename.getText() + "','" + txt_age.getText() + "','" + cbo_sex.getSelectedItem() + "','" + cbo_status.getSelectedItem() + "','" + txt_occupation.getText() + "','"+ cbo_status_of_employment.getSelectedItem() + "','" + txt_spouse_name.getText() + "','" + txt_spouse_age.getText() + "','" + txt_spouse_occupation.getText() + "','" + txt_no_of_children_male.getText() + "','" + txt_no_of_children_female.getText() + "','" + check + "','" + check + "','" + check + "','" + lbl_date.getText() + "','" + lbl_date.getText() + "',"
                     + "'" + lbl_purok.getText() + "', "
                     + "'" + lbl_user.getText() + "')"); 
             JOptionPane.showMessageDialog(null, "Save Record, Done.....", "Saving Record Notification", JOptionPane.INFORMATION_MESSAGE);
+*/
+          
+         
+            s.executeUpdate("Insert INTO pro(code,last_name,first_name,middle_name,age,sex,civil_status,address) "
+                    + "values('" + codec + "', '" + txt_family_head_lastname.getText().trim() + "','" + txt_family_head_firstname.getText() + "','" + txt_family_head_middlename.getText() + "','" + txt_age.getText() + "',"
+                    + "'" + cbo_status.getSelectedItem() + "', "
+                    + "'" + address + "')");
+            JOptionPane.showMessageDialog(null, "Save Record, Done.....", "Saving Record Notification", JOptionPane.INFORMATION_MESSAGE);
 
+           
+            
+            
+            
             s.close();
             classDb.conn.close();
 
@@ -255,6 +270,9 @@ public class Profile extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        lbl_purs = new javax.swing.JLabel();
+        lbl_munis = new javax.swing.JLabel();
+        lbl_bars = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         lbl_date = new javax.swing.JMenu();
         lbl_time = new javax.swing.JMenu();
@@ -446,6 +464,15 @@ public class Profile extends javax.swing.JFrame {
         jLabel22.setText("(Barangay)");
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 520, -1, -1));
 
+        lbl_purs.setText("jLabel16");
+        jPanel1.add(lbl_purs, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 70, 20));
+
+        lbl_munis.setText("jLabel16");
+        jPanel1.add(lbl_munis, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, 70, 20));
+
+        lbl_bars.setText("jLabel16");
+        jPanel1.add(lbl_bars, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, 70, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 690));
 
         lbl_date.setText("Date");
@@ -476,7 +503,7 @@ public class Profile extends javax.swing.JFrame {
         int id_de = d_vo.getidMunicipal();
         String n = d_vo.getdesMunicipal();
         lbl_mun.setText(id_de+" ");
-        
+        lbl_munis.setText(n);
     
         Barangay.list_barangay(cbo_barangay, id_de);
         
@@ -491,7 +518,7 @@ public class Profile extends javax.swing.JFrame {
         int id_di = p_vo.getIdBarangay();
         String n = p_vo.getNameBarangay();
         lbl_bar.setText(" - "+id_di);
-       
+      lbl_bars.setText(n);
         Purok.list_purok(cbo_purok, id_di);
        
      
@@ -507,7 +534,7 @@ public class Profile extends javax.swing.JFrame {
         String n = p_vo.getPurok();
         
       lbl_purok.setText(" - "+id_di+" - ");
-     
+     lbl_purs.setText(n);
        
         
     }//GEN-LAST:event_cbo_purokItemStateChanged
@@ -609,10 +636,13 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_bar;
+    private javax.swing.JLabel lbl_bars;
     private javax.swing.JLabel lbl_code;
     private javax.swing.JMenu lbl_date;
     private javax.swing.JLabel lbl_mun;
+    private javax.swing.JLabel lbl_munis;
     private javax.swing.JLabel lbl_purok;
+    private javax.swing.JLabel lbl_purs;
     private javax.swing.JMenu lbl_time;
     private javax.swing.JLabel lbl_user;
     private javax.swing.JTextField ot_id;
